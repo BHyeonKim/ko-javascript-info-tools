@@ -6,5 +6,11 @@
     "name": "Bo Hyun Kim",
     "email": "rlaqhguse@gmail.com",
     "url": "https://github.com/BHyeonKim"
-  }
+  },
+  "agents": [
+    "./agents/custom-rule-validator.md",
+    "./agents/kigo-validator.md",
+    "./agents/spell-checker.md",
+    "./agents/wiki-validator.md"
+  ]
 }
