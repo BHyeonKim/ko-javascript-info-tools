@@ -1,0 +1,10 @@
+{
+  "name": "ko-javascript-info-tools",
+  "description": "Tools for working with ko.javascript.info translations",
+  "version": "1.0.0",
+  "author": {
+    "name": "Bo Hyun Kim",
+    "email": "rlaqhguse@gmail.com",
+    "url": "https://github.com/BHyeonKim"
+  }
+}
