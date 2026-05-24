@@ -17,16 +17,20 @@
 
 ### 플러그인 설치
 
-Claude Code에서 아래 명령을 실행합니다.
+Claude Code에서 아래 명령을 순서대로 실행합니다.
 
 ```
 /plugin marketplace add BHyeonKim/ko-javascript-info-tools
+/plugin install ko-javascript-info-tools@ko-javascript-info-tools
+/reload-plugins
 ```
 
 ### 업데이트
 
 ```
 /plugin marketplace update BHyeonKim/ko-javascript-info-tools
+/plugin install ko-javascript-info-tools@ko-javascript-info-tools
+/reload-plugins
 ```
 
 ---
