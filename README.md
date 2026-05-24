@@ -1,6 +1,6 @@
-# javascriptinfo-ko-translation-validator
+# ko-javascript-info-tools
 
-[모던 JavaScript 튜토리얼](https://javascript.info/) 한국어 번역 프로젝트 [ko.javascript.info](https://github.com/javascript-tutorial/ko.javascript.info)의 번역 품질을 검증하는 Claude Code 스킬입니다.
+[모던 JavaScript 튜토리얼](https://javascript.info/) 한국어 번역 프로젝트 [ko.javascript.info](https://github.com/javascript-tutorial/ko.javascript.info)의 번역 품질을 검증하는 Claude Code 플러그인입니다.
 
 번역 파일(`.md`)을 지정하면 4개의 에이전트가 병렬로 규칙을 검사하고, 마크다운 보고서와 JSON 파일을 생성합니다.
 
@@ -15,42 +15,18 @@
 - Node.js + [hanspell](https://www.npmjs.com/package/hanspell) (`npm install -g hanspell`)
 - macOS / Linux / WSL
 
-### 방법 1 — git clone (권장)
+### 플러그인 설치
 
-```bash
-# 1. 스킬 디렉터리로 이동 (없으면 생성)
-mkdir -p ~/.claude/skills
-cd ~/.claude/skills
-
-# 2. 저장소 클론
-git clone https://github.com/BHyeonKim/javascriptinfo-ko-translation-validator translation-validator
-```
-
-### 방법 2 — 수동 복사
-
-저장소를 ZIP으로 다운로드한 뒤 압축을 풀고, 폴더 이름을 `translation-validator`로 변경해 `~/.claude/skills/`에 넣습니다.
+Claude Code에서 아래 명령을 실행합니다.
 
 ```
-~/.claude/skills/
-└── translation-validator/
-    ├── SKILL.md
-    ├── references/
-    └── scripts/
-```
-
-### 설치 확인
-
-Claude Code를 재시작한 뒤 아래 명령으로 스킬 목록에 `translation-validator`가 표시되는지 확인합니다.
-
-```
-/skills
+/plugin marketplace add BHyeonKim/ko-javascript-info-tools
 ```
 
 ### 업데이트
 
-```bash
-cd ~/.claude/skills/translation-validator
-git pull
+```
+/plugin marketplace update BHyeonKim/ko-javascript-info-tools
 ```
 
 ---
@@ -264,11 +240,21 @@ article.md → article_validation.json
 
 ```
 .
-├── SKILL.md                      # Claude Code 스킬 정의
-├── references/
-│   ├── wiki-guidelines.md        # WIKI-1~17 규칙
-│   ├── kigo-guidelines.md        # KIGO 스타일 가이드
-│   └── custom-rules.md           # 프로젝트 커스텀 규칙
+├── .claude-plugin/
+│   ├── plugin.json               # 플러그인 메타데이터
+│   └── marketplace.json          # 마켓플레이스 정보
+├── agents/
+│   ├── wiki-validator.md         # WIKI 규칙 검사 에이전트
+│   ├── kigo-validator.md         # KIGO 규칙 검사 에이전트
+│   ├── custom-rule-validator.md  # CUSTOM 규칙 검사 에이전트
+│   └── spell-checker.md          # 맞춤법 검사 에이전트
+├── skills/
+│   └── javascriptinfo-ko-translation-validator/
+│       ├── SKILL.md              # Claude Code 스킬 정의
+│       └── references/
+│           ├── wiki-guidelines.md
+│           ├── kigo-guidelines.md
+│           └── custom-rules.md
 └── scripts/
     └── check_spelling.py         # 맞춤법 검사 스크립트
 ```
